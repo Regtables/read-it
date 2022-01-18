@@ -1,17 +1,17 @@
 import React from 'react'
+import Tile from '../Tile/Tile'
 
-import Post from '../Post/Post'
 import './PostList.css'
 
-function PostList() {
+function PostList({topic}) {
   return (
     <div className = 'posts-container'>
-        <Post 
+        <Tile
             title = 'test'
             thumbnail = 'image'
             subreddit = 'r/test'
         />
-        <Post 
+        <Tile 
             title = 'test'
             thumbnail = 'image'
             subreddit = 'r/test'

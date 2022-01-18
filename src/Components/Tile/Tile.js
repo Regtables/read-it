@@ -1,9 +1,9 @@
 import React from 'react'
-import './Post.css'
+import './Tile.css'
 
-function Post({title, thumbnail, subreddit}) {
+function Tile({title, thumbnail, subreddit}) {
   return (
-      <div className = 'post-container'>
+      <div className = 'tile-container'>
           <div className = 'title-container'>
                 <h3>{title}</h3>
           </div>
@@ -15,4 +15,4 @@ function Post({title, thumbnail, subreddit}) {
   )
 }
 
-export default Post
+export default Tile

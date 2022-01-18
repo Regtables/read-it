@@ -19,29 +19,16 @@ export default function App() {
                 <NavBar />
             </nav>
         </header>
-      </Row> 
-      <Row>
-        <main>
-          <Row>
-            <Col>
-              <div className = 'side-menu'>
-                  <SideMenu />
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <div className = 'routes'>
-              <Row className = 'page-filter' style = {{margin: 30}}>
-                <h2>HomePage</h2>
-                <Search />
-              </Row>
-                <Routes>
-                    <Route path = '/' element = {<HomePage />}></Route>
-                </Routes>
-            </div>
-          </Row>
-        </main>
       </Row>
+      <div className = 'routes'>
+          <Routes>
+              <Route path = '/' element = {<HomePage />}></Route>
+              <Route path = '/trending'></Route>
+              <Route path = '/hot' ></Route>
+              <Route path = '/:pagename' ></Route>
+              <Route path = '/:postId' ></Route>
+          </Routes>
+      </div>
     </div>
   )
 }

@@ -1,4 +1,12 @@
 .home-page-container{
-  max-height: 100vh;
-  overflow: scroll;
+  display: flex;
+}
+
+.main-content{
+  width: 80%;
+}
+
+.side-menu{
+  left: 0;
+  width: 20%;
 }

@@ -1,23 +1,29 @@
 import React from 'react'
-import { Input, Avatar } from 'antd'
+import { Input, Avatar, Typography} from 'antd'
 import { SearchOutlined, FireTwoTone } from '@ant-design/icons'
+import { Link } from 'react-router-dom'
 
 import './NavBar.css'
 import icon from '../../images/reading.png'
 
 const { Search } = Input;
+const { Title } = Typography
 
 function NavBar() {
   return (
     <div className = 'nav-bar-container'>
         <div className = 'logo-container'>
-            <Avatar 
-                src = {icon} 
-                size = 'large' 
-                style = {{height: 60, width: 60}} 
-                alt = 'logo' 
-            />
-            <h1 style = {{marginRight: 50}}>Read-It</h1>
+            <Link to = '/'>
+                <Avatar 
+                    src = {icon} 
+                    size = 'large' 
+                    style = {{height: 60, width: 60}} 
+                    alt = 'logo' 
+                />
+             </Link>
+             <Link to = '/  '>
+                <h1 style = {{marginRight: 50}}>Read-It</h1>
+            </Link>
         </div>
         <div className = 'search-bar-container'>
             <Search
