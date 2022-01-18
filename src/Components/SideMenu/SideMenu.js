@@ -6,7 +6,7 @@ function SideMenu() {
   return (
     <div className = 'side-menu-container'>
         <div className = 'side-menu-header'>
-             <h2>Reccommended Sub-Reddits</h2>
+             <h3>Reccommended Sub-Reddits</h3>
         </div>
     </div>
   )
