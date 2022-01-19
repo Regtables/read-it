@@ -1,0 +1,12 @@
+.home-page-container{
+  display: flex;
+}
+
+.main-content{
+  width: 80%;
+}
+
+.side-menu{
+  left: 0;
+  width: 20%;
+}
