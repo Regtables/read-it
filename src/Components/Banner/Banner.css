@@ -1,0 +1,22 @@
+.banner-container{
+  height: 20vh;
+  width: 100%;
+  border-bottom: rgb(189, 79, 139) 2px solid;
+  background-size: cover;
+}
+
+.subreddit-title{
+  margin: 5px 0px 0px 50px;
+  background-color: lavender;
+  width: 100%;
+  font-family: 'Montserrat';
+  padding-left: 10px;
+  
+}
+
+.subreddit-description{
+  margin: 5px 5px 5px 50px;
+  font-family: 'Montserrat';
+}
+
+

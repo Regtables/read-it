@@ -1,0 +1,28 @@
+.home-page-container{
+  display: flex;
+}
+
+.main-content{
+  width: 80%;
+}
+
+.side-menu{
+  left: 0;
+  width: 20%;
+  height: 100%;
+}
+
+.search-bar{
+  
+  margin: 20px 50px 50px 50px;
+}
+
+@media screen and (max-width: 500px) {
+  .side-menu{
+    display: none;
+  }
+
+  .main-content{
+    width: 100%;
+  }
+}
