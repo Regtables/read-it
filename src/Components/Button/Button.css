@@ -1,0 +1,30 @@
+.button-container{
+  width: auto;
+  border-radius: 20px;
+  padding: 7px 20px;
+  background-color: rgb(200, 118, 211);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p{
+  margin: 0;
+  font-family: 'Montserrat';
+  font-weight: 300;
+}
+
+.button-container:hover{
+  cursor: pointer;
+  background-color: rgb(226, 157, 217)
+
+}
+
+.favorite{
+  background-color: lightsalmon;
+  font-size: 16px;
+}
+
+.favorite:hover {
+  background-color: rgb(247, 186, 162);
+}

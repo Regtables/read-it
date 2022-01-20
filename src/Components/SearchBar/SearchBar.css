@@ -4,6 +4,7 @@ input {
   height: 35px;
   border: none; 
   box-shadow: lavender 3px 3px 3px;
+  font-family: 'Montserrat';
 }
 
 @media screen and (max-width: 500px) {

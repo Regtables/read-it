@@ -5,6 +5,8 @@ import PostList from '../PostList/PostList'
 import SideMenu from '../SideMenu/SideMenu'
 import Banner from '../Banner/Banner'
 import SearchBar from '../SearchBar/SearchBar'
+import Button from '../Button/Button'
+import Filters from '../Filters/Filters'
 
 import './HomePage.css'
 import banner from '../../images/homepage.jpeg'
@@ -29,7 +31,12 @@ function HomePage() {
                       img = {banner}/>
               </div>
               <Row className = 'search-bar'>
-                <SearchBar placeholder = 'Search this Page' />
+                <Col>
+                  <SearchBar placeholder = 'Search this Page' />
+                </Col>
+                <Col className = 'filters'>
+                  <Filters terms = {['funny', 'interesting', 'pretty', 'wowowowowowowow']}/>
+                </Col>
               </Row>
               <Row className = 'posts'>
                   <PostList />

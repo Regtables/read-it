@@ -1,0 +1,10 @@
+.filters-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: auto;
+  flex-wrap: wrap ;
+}
+
+.filter{
+  margin: 0 20px
+}

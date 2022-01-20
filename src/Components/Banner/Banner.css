@@ -1,7 +1,13 @@
 .banner-container{
-  height: 20vh;
+  height: 40vh;
   width: 100%;
   border-bottom: rgb(189, 79, 139) 2px solid;
+  background-size: cover;
+}
+
+.banner-img{
+  height: 20vh;
+  width: 100%;
   background-size: cover;
 }
 
@@ -10,13 +16,21 @@
   background-color: lavender;
   width: 100%;
   font-family: 'Montserrat';
-  padding-left: 10px;
-  
+  font-size: 2.5rem;
+}
+
+.subreddit-title-container{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: lavender
 }
 
 .subreddit-description{
   margin: 5px 5px 5px 50px;
   font-family: 'Montserrat';
 }
+
+
 
 
