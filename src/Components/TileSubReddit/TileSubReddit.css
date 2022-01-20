@@ -1,0 +1,14 @@
+.subreddit-tile-container{
+  height: 4rem;
+  width: 100%;
+  border-bottom: 1px solid rgb(214, 214, 214);
+  background: linear-gradient(0deg, #d1b0cf, transparent);
+  font-family: 'Montserrat';
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.subreddit-tile-container:hover{
+  cursor: pointer;
+}

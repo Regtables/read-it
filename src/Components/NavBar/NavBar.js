@@ -31,10 +31,10 @@ function NavBar() {
             <SearchBar placeholder = 'Search Read-It'/>
         </div>
         <div className = 'filter-icons-container'>
-            <FireTwoTone 
+            {/* <FireTwoTone 
                   style = {{fontSize: 28}}
                   twoToneColor = 'red'
-            />
+            /> */}
                     
         </div>
     </div>

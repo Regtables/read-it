@@ -13,7 +13,7 @@
 
 .subreddit-title{
   margin: 5px 0px 0px 50px;
-  background-color: lavender;
+  /* background-color: lavender; */
   width: 100%;
   font-family: 'Montserrat';
   font-size: 2.5rem;
@@ -23,7 +23,8 @@
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: lavender
+  background-color: lavender;
+  border: 0.5px solid rgb(223, 221, 221);
 }
 
 .subreddit-description{

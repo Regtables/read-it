@@ -11,6 +11,7 @@
   padding: 14px;
   background-size: large;
   background-position: bottom;
+  border-bottom: rgb(189, 79, 139) 2px solid;
 }
 
 .side-menu-header h3{
