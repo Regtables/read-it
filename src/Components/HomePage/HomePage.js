@@ -27,7 +27,7 @@ function HomePage() {
               <div className = 'banner'>
                   <Banner 
                       title = 'Home Page' 
-                      description = 'Todays Posts'
+                      description = 'Todays Reads'
                       img = {banner}/>
               </div>
               <Row className = 'search-bar'>

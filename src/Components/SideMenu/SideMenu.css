@@ -12,6 +12,7 @@
   background-size: large;
   background-position: bottom;
   border-bottom: rgb(189, 79, 139) 2px solid;
+  display: flex;
 }
 
 .side-menu-header h3{

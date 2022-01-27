@@ -12,7 +12,7 @@ function SideMenu() {
   return (
     <div className = 'side-menu-container'>
         <div className = 'side-menu-header' style = {{backgroundImage: `url(${background})`}}>
-             <h3>Favortie Sub-Reddits</h3>
+             <h3>Your Favortie Reads</h3>
         </div>
         <div className = 'favorite-list-container'>
           <TileListSubReddit subreddits = {favorites} />          

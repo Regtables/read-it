@@ -11,4 +11,5 @@
 
 .subreddit-tile-container:hover{
   cursor: pointer;
+  background: linear-gradient(0deg, #dfc7dd, transparent);
 }

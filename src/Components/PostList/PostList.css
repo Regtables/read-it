@@ -1,9 +1,14 @@
 .posts-container{
-  max-height: 100vh;
+  height: auto;
   width: 100%;
-  overflow: scroll;
+  /* overflow: scroll; */
   background-color: rgb(248, 230, 250);
   border-top-right-radius: 10px;
   border-radius: 10px;
   border: solid 0.5px rgb(231, 230, 230);
+
+}
+
+.row{
+  
 }
