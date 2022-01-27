@@ -27,8 +27,6 @@ function Tile({title,
     return d
   }
 
-  console.log(dateCreated());
-
   let video = false;     
   let embed = false;     
   
@@ -60,7 +58,6 @@ function Tile({title,
 
   function isEmbed(){
     if(mediaEmbed.media_domain_url){
-        console.log(mediaEmbed)
         embed = true;
         return <Row className = 'embed-container'>
                     <embed src = {mediaEmbed.media_domain_url} style = {{width: mediaEmbed.width, height: mediaEmbed.height}}/>

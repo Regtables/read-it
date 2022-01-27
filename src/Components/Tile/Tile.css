@@ -1,12 +1,12 @@
 .tile-container{
-  width: 750px;
+  width: 80%;
   height: auto;
   /* background-color: rgb(202, 96, 119); */
   background-color: rgb(233 159 175);
   border-radius: 10px;
   margin: 20px;
   box-shadow: rgb(146, 69, 86) 5px 5px 3px;
-  padding: 10px;
+  padding: 5px 10px;
 }
 
 .title-container{
@@ -37,6 +37,14 @@
   font-size: 18px;
 }
 
+.tile-body-container{
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  overflow: scroll;
+  overflow-wrap: break-word;
+}
+
 img, embed, video{
   margin: 0 auto;
   border-radius: 10px;
@@ -45,10 +53,20 @@ img, embed, video{
   max-width: 700px;
 }
 
+.link-container{
+  width: 100%;
+  height: auto;
+  overflow-wrap: break-word;
+}
+
 .link-container a{
   color: rgb(104, 82, 151);
   font-size: 15px;
   padding: 20px 0 0 0;
+  width: 100%;
+  height: auto;
+  overflow-wrap: break-word;
+  
 }
 
 .tile-container a:hover{
@@ -59,6 +77,8 @@ img, embed, video{
   font-size: 16px;
   height: auto;
   width: auto;
+  background-color: rgb(207, 143 ,156);
+  border-radius: 10px;
 }
 
 .tile-footer-container{

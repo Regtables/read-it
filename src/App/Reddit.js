@@ -1,14 +1,39 @@
 import { v4 as uuid } from "uuid";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const redirectURI = 'http://localhost:3000/'
+const baseUrl = 'https://www.reddit.com'
 const state = uuid();
 const clientID = '6NtCFg78zX55YmFoecxv0Q'
 const clientSecret = 'qrwLeFO45LQUqC1YA4jJ62J3Qh8PwA'
 const responseType = 'code'
 const duration = 'permanent'
 const scope = 'read'
-
 let accessToken;
+
+export const loadHotPosts = createAsyncThunk(
+  'posts/loadHotPosts',
+   async() => {
+
+    const response = await fetch(`${baseUrl}/hot.json`);
+    const json = await response.json();
+    const data =  json.data.children.map((post) => post.data);
+
+    return data;
+  }
+)
+
+export const loadSubreddit = createAsyncThunk(
+  'posts/loadSubreddit',
+  async(subreddit) => {
+    const response = await fetch(`${baseUrl}/r/${subreddit}/about.json`);
+    const json = await response.json();
+    const data = Object.values(json).map((info) => info);
+
+    return data[1];
+    
+  }
+)
 
 
 export const getToken = async () => {
@@ -90,9 +115,9 @@ export const getSubReddit = async () => {
   const json = await response.json();
 
   const data = Object.values(json).map((info) => info)
-  // console.log(data)
+  console.log(data)
   // console.log(data[1].icon_img)
   return data; 
 }
 
-// getSubReddit();
+getSubReddit();
