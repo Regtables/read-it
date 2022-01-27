@@ -11,9 +11,6 @@ import Filters from '../Filters/Filters'
 import './Page.css'
 import banner from '../../images/homepage.jpeg'
 
-
-
-
 function Page({subreddit}) {
 
   banner && console.log('banner is here')

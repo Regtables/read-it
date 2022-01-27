@@ -10,12 +10,13 @@ import './PostList.css'
 
 function PostList({topic}) {
   const postList = useSelector(selectPosts)
+  const dispatch = useDispatch()
   const isLoadingPosts = useSelector(isLoading)
   const [subReddit, setSubReddit] = useState()
 
   // useEffect(() => {
-  //   dispatch(loadHotPosts())
-  // },[dispatch],)
+  //   const postList = useSelector(selectPosts)
+  // },[dispatch])
 
   if(isLoadingPosts) return 'Loading..'
 

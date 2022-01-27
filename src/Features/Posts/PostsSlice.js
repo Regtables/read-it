@@ -1,30 +1,26 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { loadHotPosts, loadSubreddit } from '../../App/Reddit';
+import { useSelector } from 'react-redux';
+import { loadHotPosts, loadSubreddit, loadSubredditPosts } from '../../App/Reddit';
+import { selectSubreddit } from '../Subreddit/SubredditSlice';
 
 const baseUrl = 'https://www.reddit.com'
 
 export const getHotPosts = createAsyncThunk(
   'posts/getHotPosts',
    async() => {
-
-    const response = await fetch(`${baseUrl}/hot.json`);
-    const json = await response.json();
-    const data =  json.data.children.map((post) => post.data);
+    const data = loadHotPosts();
 
     return data;
   }
 )
 
-export const getSubreddit = createAsyncThunk(
-  'posts/getSubreddit',
-  async(subreddit) => {
-    const response = await fetch(`${baseUrl}/r/${subreddit}/about.json`);
-    const json = await response.json();
-    const data = Object.values(json).map((info) => info);
+export const getSubRedditPosts = createAsyncThunk(
+  'posts/getSubredditPosts',
+   async(subreddit) => {
+    const data = loadSubredditPosts(subreddit)
 
-    return data[1];
-    
+    return data;
   }
 )
 
@@ -32,11 +28,12 @@ const postsSlice = createSlice({
   name: 'posts',
   initialState: {
     posts: [],
-    subreddit:[],
     isLoadingPosts: false,
     hasError: false
   },
-  reducers: {},
+  reducers: {
+
+  },
   extraReducers: (builder) => {
     builder
     //Hot Post (home page)
@@ -54,27 +51,24 @@ const postsSlice = createSlice({
         state.hasError = true;
         state.posts = [];
       })
-    //Subreddit details
-      .addCase(getSubreddit.pending, (state) => {
+      .addCase(getSubRedditPosts.pending, (state) => {
         state.isLoadingPosts = true;
         state.hasError = false;
       })
-      .addCase(getSubreddit.fulfilled, (state, action) => {
+      .addCase(getSubRedditPosts.fulfilled, (state, action) => {
         state.isLoadingPosts = false;
         state.hasError = false;
-        state.subreddit = action.payload;
+        state.posts = action.payload;
       })
-      .addCase(getSubreddit.rejected, (state, action) => {
+      .addCase(getSubRedditPosts.rejected, (state, action) => {
         state.isLoadingPosts = false;
         state.hasError = true;
-        state.subreddit = {};
+        state.posts = [];
       })
-  }
+    }
 })
 
 export const selectPosts = (state) => state.posts.posts;
-export const selectSubreddit = (state) => state.posts.subreddit;
-
 export const isLoading = (state) => state.posts.isLoadingPosts;
 
 export default postsSlice.reducer;

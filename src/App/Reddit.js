@@ -11,29 +11,30 @@ const duration = 'permanent'
 const scope = 'read'
 let accessToken;
 
-export const loadHotPosts = createAsyncThunk(
-  'posts/loadHotPosts',
-   async() => {
-
+export const loadHotPosts = async () => {
     const response = await fetch(`${baseUrl}/hot.json`);
     const json = await response.json();
     const data =  json.data.children.map((post) => post.data);
 
     return data;
-  }
-)
+}
 
-export const loadSubreddit = createAsyncThunk(
-  'posts/loadSubreddit',
-  async(subreddit) => {
+export const loadSubredditInfo = async (subreddit) => {
+    
     const response = await fetch(`${baseUrl}/r/${subreddit}/about.json`);
     const json = await response.json();
     const data = Object.values(json).map((info) => info);
 
-    return data[1];
-    
-  }
-)
+    return data[1]; 
+}
+
+export const loadSubredditPosts = async (subreddit) => {
+    const response = await fetch(`${baseUrl}/r/${subreddit}/hot.json`)
+    const json = await response.json();
+    const data =  json.data.children.map((post) => post.data);
+
+    return data;
+}
 
 
 export const getToken = async () => {
