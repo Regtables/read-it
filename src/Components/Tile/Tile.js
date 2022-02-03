@@ -21,7 +21,8 @@ function Tile({title,
                author,
                comments,
                score,
-               created
+               created,
+               permalink
             }){
   const subredditInfo = useSelector(selectSubredditInfo)
   
@@ -87,7 +88,7 @@ function Tile({title,
                <Link to = {`/${subreddit}`}><p>r/{subreddit}</p></Link>
           </div>
           <div className = 'title-container'>
-                <h3>{title}</h3>
+                <Link to = {`${permalink}`}><h3>{title}</h3></Link>
           </div>
           <hr />
           <div className = 'tile-body-container' >

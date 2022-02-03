@@ -36,6 +36,19 @@ export const loadSubredditPosts = async (subreddit) => {
     return data;
 }
 
+export const loadPost = async (link) => {
+    const response = await fetch(`${baseUrl}${link}.json`)
+    const json = await response.json();
+
+    const post = {
+      postInfo: json[0].data.children[0].data,
+      comments: json[1].data.children
+    }
+    return post
+}
+
+loadPost('/r/pics/comments/sj9tah/bought_my_house_6_mo_ago_and_found_this_hidden/')
+
 
 export const getToken = async () => {
 

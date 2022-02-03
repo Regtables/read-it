@@ -39,7 +39,7 @@ export default function App() {
               <Route path = '/trending'></Route>
               <Route path = '/hot' ></Route>
               <Route path = '/:subreddit' element = {<Page />}></Route>
-              <Route path = '/:subreddit/comments/post' ></Route>
+              <Route path = '/:permalink' ></Route>
           </Routes>
       </div>
     </div>

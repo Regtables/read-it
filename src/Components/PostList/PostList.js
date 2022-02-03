@@ -41,6 +41,7 @@ function PostList({topic}) {
               comments = {post.num_comments}
               score = {post.score}
               created = {post.created}
+              permalink = {post.permalink}
 
           />  )}
         </Row>
