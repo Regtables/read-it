@@ -7,6 +7,7 @@ import NavBar from '../Components/NavBar/NavBar'
 import HomePage from '../Components/HomePage/HomePage'
 import SideMenu from '../Components/SideMenu/SideMenu'
 import Page from '../Components/Page/Page'
+import Post from '../Components/Post/Post'
 import { getToken } from './Reddit'
 import { getHotPosts, getSubRedditPosts } from '../Features/Posts/PostsSlice'
 import { getSubredditInfo, selectSubreddit, selectSubredditInfo, setSubreddit } from '../Features/Subreddit/SubredditSlice'
@@ -39,7 +40,7 @@ export default function App() {
               <Route path = '/trending'></Route>
               <Route path = '/hot' ></Route>
               <Route path = '/:subreddit' element = {<Page />}></Route>
-              <Route path = '/:permalink' ></Route>
+              <Route path = '/r/:subreddit/comments/:postId/:post' element = {<Post />}></Route>
           </Routes>
       </div>
     </div>

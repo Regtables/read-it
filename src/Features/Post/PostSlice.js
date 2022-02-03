@@ -4,13 +4,14 @@ import { loadPost } from "../../App/Reddit";
 export const getPost = createAsyncThunk(
   'post/getPost',
    async(permalink) => {
-     const post = loadPost(permalink)
+     const post = await loadPost(permalink)
+     console.log(post)
      return post
    }
 )
 
 const postSlice = createSlice({
-  name: 'post/getPost',
+  name: 'post',
   initialState: {
     postInfo: [],
     comments: [],
@@ -30,6 +31,7 @@ const postSlice = createSlice({
       state.hasError = false;
     })
     .addCase(getPost.fulfilled, (state, action) => {
+      console.log('test')
       const { postInfo, comments } = action.payload
       state.isLoadingPost = false;
       state.hasError = false;
@@ -46,9 +48,9 @@ const postSlice = createSlice({
 })
 
 export const initializePost = (permalink) => {
-  postSlice.actions.clearPost();
-  return (dispach) => {
-    dispach(getPost(permalink));
+  return (dispatch) => {
+    dispatch(postSlice.actions.clearPost())
+    dispatch(getPost(permalink))
   }
 }
 

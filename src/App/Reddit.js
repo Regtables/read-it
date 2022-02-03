@@ -44,10 +44,10 @@ export const loadPost = async (link) => {
       postInfo: json[0].data.children[0].data,
       comments: json[1].data.children
     }
-    return post
-}
 
-loadPost('/r/pics/comments/sj9tah/bought_my_house_6_mo_ago_and_found_this_hidden/')
+    return post
+    
+}
 
 
 export const getToken = async () => {

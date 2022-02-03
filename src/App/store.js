@@ -1,4 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, applyMiddleware } from '@reduxjs/toolkit'
+import thunk from 'redux-thunk'
 import postsReducer  from '../Features/Posts/PostsSlice'
 import subredditReducer from '../Features/Subreddit/SubredditSlice'
 import postReducer from '../Features/Post/PostSlice'
@@ -8,6 +9,6 @@ export default configureStore({
   reducer: {
     post: postReducer,
     posts: postsReducer,
-    subreddit: subredditReducer
+    subreddit: subredditReducer,
   }
 })
