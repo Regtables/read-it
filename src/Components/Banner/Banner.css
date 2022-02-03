@@ -1,7 +1,6 @@
 .banner-container{
-  height: 40vh;
+  height: auto;
   width: 100%;
-  border-bottom: rgb(189, 79, 139) 2px solid;
   background-size: cover;
 }
 
@@ -9,12 +8,12 @@
   height: 30vh;
   width: 100%;
   background-size: cover;
+  background-position: center;
 }
 
 .subreddit-title{
-  margin: 5px 0px 0px 50px;
+  margin: 5px 0px 0px 0px;
   /* background-color: lavender; */
-  width: 100%;
   font-family: 'Montserrat';
   font-size: 2.5rem;
 }
@@ -27,8 +26,34 @@
   border: 0.5px solid rgb(223, 221, 221);
 }
 
+.left-side{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* flex-wrap: wrap; */
+  width: auto;
+}
+
+.subreddit-banner-icon {
+  height: 90px;
+  width: 90px;
+  border-radius: 50% 50%;
+}
+.subreddit-banner-icon-container{
+  height: 100px;
+  width: 100px;
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 50% 50%;
+  background-color: ivory;
+}
+.subreddit-name{
+  margin: 0 0 0 50px;
+}
+
 .subreddit-description{
-  margin: 5px 5px 5px 50px;
+  margin: 15px 5px 5px 50px;
   font-family: 'Montserrat';
 }
 

@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { Row, Col, Space} from 'antd'
+import { initializeHomePage, setSubreddit, clearInfo } from '../../Features/Subreddit/SubredditSlice'
+import { getHotPosts } from '../../Features/Posts/PostsSlice'
 
 import PostList from '../PostList/PostList'
 import SideMenu from '../SideMenu/SideMenu'
@@ -10,13 +13,17 @@ import Filters from '../Filters/Filters'
 
 import './HomePage.css'
 import banner from '../../images/homepage.jpeg'
-
-
+import icon from '../../images/home-icon.jpeg'
 
 
 function HomePage() {
 
-  banner && console.log('banner is here')
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    initializeHomePage(dispatch);
+  },[dispatch])
+
 
   return (
     <div className = 'home-page-container'>
@@ -26,8 +33,10 @@ function HomePage() {
           <Col className ='main-content'>
               <div className = 'banner'>
                   <Banner 
-                      title = 'Home Page' 
+                      title = 'Home Page'
+                      subreddit = 'Your page' 
                       description = 'Todays Reads'
+                      icon = {icon}
                       img = {banner}/>
               </div>
               <Row className = 'search-bar'>

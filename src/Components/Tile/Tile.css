@@ -33,8 +33,12 @@
 
 .subreddit-container p{
   color: white;
-  margin: auto 0;
   font-size: 18px;
+  width: auto;
+}
+
+.subreddit-container p:hover{
+  color: #dbdcdd;
 }
 
 .tile-body-container{
@@ -62,7 +66,7 @@ img, embed, video{
 .link-container a{
   color: rgb(104, 82, 151);
   font-size: 15px;
-  padding: 20px 0 0 0;
+  padding: 5px;
   width: 100%;
   height: auto;
   overflow-wrap: break-word;
@@ -70,7 +74,7 @@ img, embed, video{
 }
 
 .tile-container a:hover{
-  color: rgb(115, 91, 167);
+  color: rgb(65, 40, 119);
 }
 
 .tile-body-container{

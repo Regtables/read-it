@@ -24,18 +24,6 @@ export default function App() {
   //     dispatch(getHotPosts())
   //   },[dispatch],)
 
-    // dispatch(setSubreddit('leagueoflegends'))
-    // dispatch(getSubredditInfo(subreddit))
-    // dispatch(getSubRedditPosts(subreddit))
-
-    useEffect(() => {
-      dispatch(setSubreddit('dungeonsanddragons'))
-      dispatch(getSubredditInfo(subreddit))
-      dispatch(getSubRedditPosts(subreddit))
-      console.log(subreddit)
-    }, [dispatch,subreddit])
-
-    console.log(subredditInfo)
   return (
     <div className = 'app'>
       <Row>
@@ -50,8 +38,8 @@ export default function App() {
               <Route path = '/' element = {<HomePage />}></Route>
               <Route path = '/trending'></Route>
               <Route path = '/hot' ></Route>
-              <Route path = '/:pagename' element = {<Page/>}></Route>
-              <Route path = '/:postId' ></Route>
+              <Route path = '/:subreddit' element = {<Page />}></Route>
+              <Route path = '/:subreddit/comments/post' ></Route>
           </Routes>
       </div>
     </div>

@@ -1,5 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Row, Col, Space} from 'antd'
+import { useParams } from 'react-router'
+import { useSelector, useDispatch } from 'react-redux'
+import { setSubreddit, getSubredditInfo, selectSubreddit, selectSubredditInfo, initializePage } from '../../Features/Subreddit/SubredditSlice'
+import { getSubRedditPosts } from '../../Features/Posts/PostsSlice'
 
 import PostList from '../PostList/PostList'
 import SideMenu from '../SideMenu/SideMenu'
@@ -11,21 +15,30 @@ import Filters from '../Filters/Filters'
 import './Page.css'
 import banner from '../../images/homepage.jpeg'
 
-function Page({subreddit}) {
+function Page() {
+  const { subreddit } = useParams();
+  const currentSubreddit = useSelector(selectSubreddit)
+  const subredditInfo = useSelector(selectSubredditInfo)
+  const dispatch = useDispatch()
+  
+  // useEffect(() => {
+  //   dispatch(setSubreddit(subreddit))
+  //   dispatch(getSubredditInfo(subreddit))
+  //   dispatch(getSubRedditPosts(subreddit))
+  // }, [subreddit])
 
-  banner && console.log('banner is here')
+  useEffect(() => {
+    dispatch(initializePage(subreddit))
+  }, [currentSubreddit, subreddit])
 
   return (
-    <div className = 'home-page-container'>
+    <div className = 'page-container'>
           <Col className = 'side-menu'>
                 <SideMenu />
           </Col>
           <Col className ='main-content'>
               <div className = 'banner'>
-                  <Banner 
-                      title = 'Home Page' 
-                      description = 'Todays Reads'
-                      img = {banner}/>
+                  <Banner />
               </div>
               <Row className = 'search-bar'>
                 <Col>

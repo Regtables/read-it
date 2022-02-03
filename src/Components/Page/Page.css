@@ -1,4 +1,4 @@
-.home-page-container{
+.page-container{
   display: flex;
 }
 
@@ -15,11 +15,11 @@
 
 .search-bar{
   
-  margin: 50px 50px 50px 50px;
+  margin: 15px 0 0 50px;
 }
 
 .posts{
-  margin: 50px;
+  margin: 30px;
 }
 
 @media screen and (max-width: 500px) {

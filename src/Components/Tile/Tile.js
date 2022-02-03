@@ -1,8 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { selectSubreddit, selectSubredditInfo } from '../../Features/Subreddit/SubredditSlice'
 import './Tile.css'
-import { Row, Col } from 'antd'
+import { Row, Col, Avatar} from 'antd'
 import { CommentOutlined, UserOutlined, RiseOutlined, LinkOutlined} from '@ant-design/icons'
 import  moment from 'moment'
+import { Link } from 'react-router-dom'
 
 function Tile({title, 
                media, 
@@ -20,6 +23,7 @@ function Tile({title,
                score,
                created
             }){
+  const subredditInfo = useSelector(selectSubredditInfo)
   
   function dateCreated(){
     var d = new Date(0);
@@ -46,7 +50,7 @@ function Tile({title,
         if(media.reddit_video) {
             video = true;
             return <Row className = 'video-container'>
-                        <video controls preload>
+                        <video controls preload = 'true'>
                             <source src = {media.reddit_video.fallback_url}></source>
                         </video>
                     </Row>
@@ -80,7 +84,7 @@ function Tile({title,
   return (
       <div className = 'tile-container'>
           <div className = 'subreddit-container'>
-                <p>r/{subreddit}</p>
+               <Link to = {`/${subreddit}`}><p>r/{subreddit}</p></Link>
           </div>
           <div className = 'title-container'>
                 <h3>{title}</h3>
@@ -93,7 +97,7 @@ function Tile({title,
                 <p>{selftext}</p>
                 {isLink()}
           </div>
-          <hr noshade/>
+          <hr />
           <Row className = 'tile-footer-container'>
                 <Col className = 'author-container'>
                     <p>Posted by <span><UserOutlined />{author}</span></p>

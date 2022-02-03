@@ -1,16 +1,20 @@
 import React from 'react'
 import TileSubReddit from '../TileSubReddit/TileSubReddit'
 import { Row } from 'antd';
+import { Link } from 'react-router-dom'
 
 import './TileListSubReddit.css'
 
 function TileListSubReddit({subreddits}) {
+
   return (
     <div className = 'list-container'> 
         {subreddits.map((subreddit, index) =>(
-          <Row key = {index}>
-            <TileSubReddit subreddit = {subreddit} key = {index}/>
-          </Row>
+          <Link to = {`/${subreddit}`} key = {index}>
+            <Row >
+              <TileSubReddit subreddit = {subreddit}/>
+            </Row>
+          </Link>  
         ))}
     </div>
   )
