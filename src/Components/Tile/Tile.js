@@ -36,11 +36,13 @@ function Tile({title,
   let embed = false;     
   
   function isLink(){
-      if(!(url.includes('.jpg') || url.includes('.png') || url.includes('.gif') || video || embed)){
-        // console.log(url)
-        return <Row className = 'link-container'>  
-                    <a href = {url} target = '_blank'><LinkOutlined />{url}</a>
-                </Row>    
+    if(url){  
+        if(!(url.includes('.jpg') || url.includes('.png') || url.includes('.gif') || video || embed)){
+            // console.log(url)
+            return <Row className = 'link-container'>  
+                        <a href = {url} target = '_blank'><LinkOutlined />{url}</a>
+                    </Row>
+        }            
       } else {
           return
       }
@@ -62,21 +64,25 @@ function Tile({title,
   }
 
   function isEmbed(){
-    if(mediaEmbed.media_domain_url){
-        embed = true;
-        return <Row className = 'embed-container'>
-                    <embed src = {mediaEmbed.media_domain_url} style = {{width: mediaEmbed.width, height: mediaEmbed.height}}/>
-                </Row>
+    if(mediaEmbed){
+        if(mediaEmbed.media_domain_url){
+            embed = true;
+            return <Row className = 'embed-container'>
+                        <embed src = {mediaEmbed.media_domain_url} style = {{width: mediaEmbed.width, height: mediaEmbed.height}}/>
+                    </Row>
+            }
     } else {
         return
     }
   }
 
   function isImage(){
-    if(url.includes('.jpg') || url.includes('.png') || url.includes('.gif')){
-        return <Row className = 'img-container'>
-                    <img src = {url} />
-                </Row>
+    if(url){  
+        if(url.includes('.jpg') || url.includes('.png') || url.includes('.gif')){
+            return <Row className = 'img-container'>
+                        <img src = {url} />
+                    </Row>
+        }            
     } else {
         return
     }
@@ -104,7 +110,7 @@ function Tile({title,
                     <p>Posted by <span><UserOutlined />{author}</span></p>
                 </Col>
                 <Col className = 'number-of-comments-container'>
-                    <p>{comments} <CommentOutlined/> <span>comments</span></p>
+                    <Link to = {permalink}><p>{comments} <CommentOutlined/> <span>comments</span></p></Link>
                 </Col>
                 <Col className = 'score-container'>
                     <p>{score}<RiseOutlined /> score</p>

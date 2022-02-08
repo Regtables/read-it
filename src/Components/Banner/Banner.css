@@ -2,13 +2,14 @@
   height: auto;
   width: 100%;
   background-size: cover;
+  
 }
 
 .banner-img{
   height: 30vh;
   width: 100%;
   background-size: cover;
-  background-position: center;
+  background-position-y: 200px;
 }
 
 .subreddit-title{

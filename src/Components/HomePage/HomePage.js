@@ -12,7 +12,7 @@ import Button from '../Button/Button'
 import Filters from '../Filters/Filters'
 
 import './HomePage.css'
-import banner from '../../images/homepage.jpeg'
+import banner from '../../images/banner-4.jpeg'
 import icon from '../../images/home-icon.jpeg'
 
 

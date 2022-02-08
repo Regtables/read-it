@@ -56,7 +56,8 @@ export const initializePost = (permalink) => {
 
 export const { clearPost } = postSlice.actions;
 
-export const selectPost = (state) => state.postInfo;
-export const selectPostComments = (state) => state.comments;
+export const selectPost = (state) => state.post.postInfo;
+export const selectPostComments = (state) => state.post.comments;
+export const isLoadingPost = (state) => state.post.isLoadingPost;
 
 export default postSlice.reducer

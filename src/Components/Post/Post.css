@@ -1,0 +1,66 @@
+.post-container{
+  background-color: rgb(233 159 175);
+}
+
+.post-header-container{
+  background-color: rgb(233 159 175);
+}
+
+.post-title-container{
+  height: auto;
+  font-family: 'Poppins', sans-serif;
+  margin: auto 0;
+  background-color: #93485d;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.post-title-container h3{
+  color: white;
+  margin: 0px;
+  margin-left: 10px;
+  /* background-color: #93485d; */
+  font-size: 35px;
+  transition: color 0.5s;
+}
+
+.post-subreddit-container p{
+  color: white;
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+.post-body-container{
+  background-color: rgb(207, 143 ,156);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.post-footer{
+  height: 100px;
+  padding: 10px;
+  background-color: #c27087;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.post-created{
+  font-size: 20px;
+}
+
+.post-created{
+  margin: auto 0px;
+}
+
+.post-date{
+  color: rgb(243, 243, 140);
+}
+
+.post-author{
+  color: rgb(194, 221, 245);
+}
+
+.post-score{
+  color: #c5345d;
+  
+}
