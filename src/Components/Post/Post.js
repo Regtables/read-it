@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux';
 import { initializePost, getPost, clearPost,  selectPost, selectPostComments, isLoadingPost } from '../../Features/Post/PostSlice' 
-import { initializePage } from '../../Features/Subreddit/SubredditSlice'
+import { initializePage, selectSubredditInfo } from '../../Features/Subreddit/SubredditSlice'
 import Tile from '../Tile/Tile';
 import CommentList from '../CommentList/CommentList';
-import { Row } from 'antd'
+import { Row, Avatar } from 'antd'
 import { LinkOutlined, RiseOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
@@ -16,6 +16,7 @@ function Post() {
 
   const comments = useSelector(selectPostComments);
   const post = useSelector(selectPost);
+  const currentSubreddit = useSelector(selectSubredditInfo)
   const loading = useSelector(isLoadingPost)
 
   const dispatch = useDispatch();
@@ -96,13 +97,13 @@ function Post() {
     <div className = 'post-container'>
         <div className = 'post-header-container'>
           <div className = 'post-subreddit-container'>
-              <Link to = {`/${post.subreddit}`}><p>r/{post.subreddit}</p></Link>
+              <Link to = {`/${post.subreddit}`}><p><Avatar src = {currentSubreddit.icon_img || currentSubreddit.header_img} size = 'large'/>r/{post.subreddit}</p></Link>
           </div>
           <div className = 'post-title-container'>
               <h3>{post.title}</h3>
           </div>
           <div className = 'post-link-container'>
-            <a href = {`https://reddit.com/${post.permalink}`} target = '_blank'>{`https://reddit.com/${post.permalink}`}</a>
+            <a href = {`https://reddit.com/${post.permalink}`} target = '_blank'><span style = {{color: 'grey'}}>View on Reddit: </span>{`https://reddit.com/${post.permalink}`}</a>
           </div>
         </div> 
         <hr />

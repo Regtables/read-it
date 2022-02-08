@@ -8,6 +8,8 @@ import { Row, Col } from 'antd'
 import './Banner.css';
 import Tile from '../Tile/Tile';
 
+
+
 function Banner({title, img, description, subreddit, icon}) {
   const subredditInfo = useSelector(selectSubredditInfo)
 

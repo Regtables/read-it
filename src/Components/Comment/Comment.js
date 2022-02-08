@@ -7,7 +7,7 @@ import { CommentOutlined, UserOutlined, RiseOutlined, CaretDownFilled} from '@an
 
 function Comment({body, author,replies, created, score}) {
 
-  const [hideReply, setHideReply ] = useState('true')
+  const [hideReply, setHideReply ] = useState(false)
 
   function dateCreated(){
     var d = new Date(0);

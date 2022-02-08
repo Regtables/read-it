@@ -12,8 +12,12 @@ import Button from '../Button/Button'
 import Filters from '../Filters/Filters'
 
 import './HomePage.css'
-import banner from '../../images/banner-4.jpeg'
 import icon from '../../images/home-icon.jpeg'
+
+import banner from '../../images/banner-4.jpeg'
+import banner2 from '../../images/banner-3.jpeg'
+import banner3 from '../../images/banner-7.png'
+import banner4 from '../../images/banner-6.jpeg'
 
 
 function HomePage() {
@@ -23,6 +27,12 @@ function HomePage() {
   useEffect(() => {
     initializeHomePage(dispatch);
   },[dispatch])
+
+  const banners = [banner, banner2, banner3, banner4];
+
+  function renderBanner(){
+    return banners[Math.floor(Math.random()*banners.length)]
+  }
 
 
   return (
@@ -37,7 +47,7 @@ function HomePage() {
                       subreddit = 'Your page' 
                       description = 'Todays Reads'
                       icon = {icon}
-                      img = {banner}/>
+                      img = {renderBanner()}/>
               </div>
               <Row className = 'search-bar'>
                 <Col>
