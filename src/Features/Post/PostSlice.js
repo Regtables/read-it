@@ -5,7 +5,7 @@ export const getPost = createAsyncThunk(
   'post/getPost',
    async(permalink) => {
      const post = await loadPost(permalink)
-     console.log(post)
+
      return post
    }
 )
@@ -31,7 +31,6 @@ const postSlice = createSlice({
       state.hasError = false;
     })
     .addCase(getPost.fulfilled, (state, action) => {
-      console.log('test')
       const { postInfo, comments } = action.payload
       state.isLoadingPost = false;
       state.hasError = false;

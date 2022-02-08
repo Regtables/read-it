@@ -20,8 +20,6 @@ function PostList({topic}) {
 
   if(isLoadingPosts) return 'Loading..'
 
-  console.log(postList)
-
   return (
     <div className = 'posts-container'>
         {

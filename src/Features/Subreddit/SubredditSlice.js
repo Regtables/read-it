@@ -4,8 +4,8 @@ import { getSubRedditPosts, getHotPosts } from "../Posts/PostsSlice";
 
 export const getSubredditInfo = createAsyncThunk(
   'posts/getSubredditInfo',
-  async(subreddit) => {
-    const data = loadSubredditInfo(subreddit);
+   async(subreddit) => {
+    const data = await loadSubredditInfo(subreddit);
     return data;
   }
 )

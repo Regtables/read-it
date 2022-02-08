@@ -23,7 +23,6 @@ function Post() {
 
   const permalink = `/r/${subreddit}/comments/${postId}/${postTitle}/`
   
-  console.log(post)
 
   useEffect(() => {
     dispatch(initializePost(permalink))

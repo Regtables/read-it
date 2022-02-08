@@ -16,13 +16,11 @@ function Comment({body, author,replies, created, score}) {
   }
 
   function toggleReply() {
-    console.log(hideReply)
     setHideReply(!hideReply)
   }
 
   function hasReplies(commentReplies){
     if(commentReplies?.data){
-      console.log(commentReplies.data.children)
       return (
         <>
         <Row className = 'replies' onClick = {toggleReply}>Replies <CaretDownFilled /></Row>

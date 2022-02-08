@@ -9,7 +9,7 @@ const baseUrl = 'https://www.reddit.com'
 export const getHotPosts = createAsyncThunk(
   'posts/getHotPosts',
    async() => {
-    const data = loadHotPosts();
+    const data = await loadHotPosts();
 
     return data;
   }
@@ -18,7 +18,7 @@ export const getHotPosts = createAsyncThunk(
 export const getSubRedditPosts = createAsyncThunk(
   'posts/getSubredditPosts',
    async(subreddit) => {
-    const data = loadSubredditPosts(subreddit)
+    const data = await loadSubredditPosts(subreddit)
 
     return data;
   }

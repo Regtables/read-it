@@ -9,7 +9,7 @@ import './CommentList.css'
 
 function CommentList() {
   const comments = useSelector(selectPostComments)
-  console.log(comments)
+  
   return (
     <div className = 'comment-list-container'>
       <div className = 'comments-header-container'>

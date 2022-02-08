@@ -46,9 +46,15 @@ export const loadPost = async (link) => {
     }
 
     return post
-    
 }
 
+export const loadSearchResults = async (searchTerm) => {
+  const response = await fetch(`${baseUrl}/search.json?q=${searchTerm}&sort=new`)
+  const json = await response.json();
+  const data = json.data.children;
+  
+  return data
+}
 
 export const getToken = async () => {
 
@@ -107,31 +113,30 @@ export const getToken = async () => {
     window.location = accessUrl;
 
   }
-
 }
 
-export const getPosts = async () => {
-      const response = await fetch('https://www.reddit.com/r/memes.json')
+// export const getPosts = async () => {
+//       const response = await fetch('https://www.reddit.com/r/memes.json')
     
-      const json = await response.json();
+//       const json = await response.json();
       
-      const data = json.data.children.map((post) => post.data)
+//       const data = json.data.children.map((post) => post.data)
 
       
 
-      return data; 
+//       return data; 
     
-}
+// }
 
-export const getSubReddit = async () => {
-  const response = await fetch('https://www.reddit.com/r/leagueoflegends/about.json')
+// export const getSubReddit = async () => {
+//   const response = await fetch('https://www.reddit.com/r/leagueoflegends/about.json')
 
-  const json = await response.json();
+//   const json = await response.json();
 
-  const data = Object.values(json).map((info) => info)
-  console.log(data)
-  // console.log(data[1].icon_img)
-  return data; 
-}
+//   const data = Object.values(json).map((info) => info)
+//   console.log(data)
+//   // console.log(data[1].icon_img)
+//   return data; 
+// }
 
-getSubReddit();
+
