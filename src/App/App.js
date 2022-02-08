@@ -1,29 +1,15 @@
 import React, { useEffect } from 'react'
 import { Route, Routes } from 'react-router'
 import { Layout, Row, Col } from 'antd'
-import { useDispatch, useSelector } from 'react-redux'
-
 import NavBar from '../Components/NavBar/NavBar'
 import HomePage from '../Components/HomePage/HomePage'
-import SideMenu from '../Components/SideMenu/SideMenu'
 import Page from '../Components/Page/Page'
 import Post from '../Components/Post/Post'
-import { getToken } from './Reddit'
-import { getHotPosts, getSubRedditPosts } from '../Features/Posts/PostsSlice'
-import { getSubredditInfo, selectSubreddit, selectSubredditInfo, setSubreddit } from '../Features/Subreddit/SubredditSlice'
+import SearchResults from '../Components/SearchResults/SearchResults'
 
 import './App.css'
-import Search from 'antd/lib/input/Search'
-
 
 export default function App() {
-  const dispatch = useDispatch();
-  const subreddit = useSelector(selectSubreddit)
-  const subredditInfo = useSelector(selectSubredditInfo)
-
-  // useEffect(() => {
-  //     dispatch(getHotPosts())
-  //   },[dispatch],)
 
   return (
     <div className = 'app'>
@@ -41,6 +27,7 @@ export default function App() {
               <Route path = '/hot' ></Route>
               <Route path = '/:subreddit' element = {<Page />}></Route>
               <Route path = '/r/:subreddit/comments/:postId/:post' element = {<Post />}></Route>
+              <Route path = '/searchResults/:searchTerm' element = {<SearchResults />}></Route>
           </Routes>
       </div>
     </div>

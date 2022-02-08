@@ -23,12 +23,14 @@ function NavBar() {
                     alt = 'logo' 
                 />
              </Link>
-             <Link to = '/  '>
+             <Link to = '/'>
                 <h1 className ='title' style = {{marginRight: 50}}>Read-It</h1>
             </Link>
         </div>
         <div className = 'search-bar-container'>
-            <SearchBar placeholder = 'Search Read-It'/>
+            <SearchBar 
+                global = {true}
+                placeholder = 'Search Read-It'/>
         </div>
         <div className = 'filter-icons-container'>
             {/* <FireTwoTone 

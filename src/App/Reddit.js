@@ -115,28 +115,4 @@ export const getToken = async () => {
   }
 }
 
-// export const getPosts = async () => {
-//       const response = await fetch('https://www.reddit.com/r/memes.json')
-    
-//       const json = await response.json();
-      
-//       const data = json.data.children.map((post) => post.data)
-
-      
-
-//       return data; 
-    
-// }
-
-// export const getSubReddit = async () => {
-//   const response = await fetch('https://www.reddit.com/r/leagueoflegends/about.json')
-
-//   const json = await response.json();
-
-//   const data = Object.values(json).map((info) => info)
-//   console.log(data)
-//   // console.log(data[1].icon_img)
-//   return data; 
-// }
-
 

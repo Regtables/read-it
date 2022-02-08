@@ -2,16 +2,17 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { loadSearchResults } from "../../App/Reddit";
 
 export const getSearchResults = createAsyncThunk(
-  'search/getSearchResults',
+  'searchResults/getSearchResults',
   async(searchTerm) => {
-    const results = await loadSearchResults(searchTerm)
+    const newSearchTerm = searchTerm.replace(' ', '');
+    const results = await loadSearchResults(newSearchTerm)
 
     return results
   }
 )
 
 export const searchSlice = createSlice({
-  name: 'search',
+  name: 'searchResults',
   initialState: {
     searchTerm: '',
     searchResults: [],
@@ -21,6 +22,9 @@ export const searchSlice = createSlice({
   reducers:  {
     setSearchTerm: (state, action) => {
       state.searchTerm = action.payload
+    },
+    clearSearchResults: (state, action) => {
+      state.searchResults = []
     }
   },
   extraReducers: (builder) => {
@@ -42,10 +46,18 @@ export const searchSlice = createSlice({
   }
 })
 
-export const selectSearchResults = (state) => state.search.searchResults;
-export const selectSearchTerm = (state) => state.search.searchTerm;
+export const initializeSearch = (term) => {
+  return (dispatch) => {
+    dispatch(searchSlice.actions.clearSearchResults())
+    dispatch(searchSlice.actions.setSearchTerm(term))
+    dispatch(getSearchResults(term))
+  }
+}
 
-export const { setSearchTerm } = searchSlice.actions
+export const selectSearchResults = (state) => state.searchResults.searchResults;
+export const selectSearchTerm = (state) => state.searchResults.searchTerm;
+
+export const { setSearchTerm, clearSearchResults } = searchSlice.actions
 
 export default searchSlice.reducer
 

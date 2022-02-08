@@ -20,12 +20,6 @@ function Page() {
   const currentSubreddit = useSelector(selectSubreddit)
   const subredditInfo = useSelector(selectSubredditInfo)
   const dispatch = useDispatch()
-  
-  // useEffect(() => {
-  //   dispatch(setSubreddit(subreddit))
-  //   dispatch(getSubredditInfo(subreddit))
-  //   dispatch(getSubRedditPosts(subreddit))
-  // }, [subreddit])
 
   useEffect(() => {
     dispatch(initializePage(subreddit))

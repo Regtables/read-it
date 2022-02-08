@@ -1,10 +1,15 @@
-input {
+input[type = 'search'] {
   border-radius: 15px;
   width: 100%;
   height: 35px;
   border: none; 
   box-shadow: lavender 3px 3px 3px;
   font-family: 'Montserrat';
+  padding: 3px; 
+}
+
+.search-bar-container{
+  display: flex;
 }
 
 @media screen and (max-width: 500px) {
