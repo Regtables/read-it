@@ -25,16 +25,24 @@ function Post() {
   const permalink = `/r/${subreddit}/comments/${postId}/${postTitle}/`
   
 
-  useEffect(() => {
-    dispatch(initializePost(permalink))
-  },[permalink, dispatch])
 
   useEffect(() => {
-    dispatch(getSubredditInfo(post.subreddit))
+    dispatch(initializePost(permalink))
+    dispatch(getSubredditInfo(subreddit))
+
+  },[permalink, dispatch])
+
+
+
+  useEffect(() => {
+    dispatch(getSubredditInfo(subreddit))
     return () => {
       dispatch(clearPost())
     }
   },[])
+
+
+  
 
   let video = false;
   let embed = false;

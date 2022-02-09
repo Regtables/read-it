@@ -1,0 +1,44 @@
+.results-header{
+  font-family: 'Poppins';
+  font-size: 30px;
+  background-color: rgb(216, 135, 173);
+  margin: 10px;
+  border-radius: 20px;
+  padding: 10px;
+  
+}
+.results-header span{
+  /* text-decoration: underline; */
+}
+.search-results-container h2{
+  font-family: 'Poppins';
+  font-size: 30px;
+  width: auto;
+}
+
+.subreddit-result-container{
+  background-color: thistle;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 20px;
+  margin-left: 50px;
+}
+
+.subreddit-result-container h2{
+  margin: auto 0px;
+}
+
+.subreddit-search-results-header h3, .posts-search-results-header h3{
+  font-family: 'Montserrat';
+  font-size: 20px;
+  width: auto;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.post-search-results{
+ 
+  margin: 10px;
+}
