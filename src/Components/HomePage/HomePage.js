@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Space} from 'antd'
 import { initializeHomePage, setSubreddit, clearInfo } from '../../Features/Subreddit/SubredditSlice'
-import { getHotPosts } from '../../Features/Posts/PostsSlice'
+import { getHotPosts, selectPosts, clearPosts } from '../../Features/Posts/PostsSlice'
 
 import PostList from '../PostList/PostList'
 import SideMenu from '../SideMenu/SideMenu'
@@ -21,11 +21,15 @@ import banner4 from '../../images/banner-6.jpeg'
 
 
 function HomePage() {
-
+  const posts = useSelector(selectPosts)
   const dispatch = useDispatch();
 
   useEffect(() => {
     initializeHomePage(dispatch);
+
+    return () => {
+      dispatch(clearPosts())
+    }
   },[dispatch])
 
   const banners = [banner, banner2, banner3, banner4];
@@ -58,7 +62,7 @@ function HomePage() {
                 </Col>
               </Row>
               <Row className = 'posts'>
-                  <PostList />
+                  <PostList postList = {posts}/>
               </Row>
            </Col>
     </div>

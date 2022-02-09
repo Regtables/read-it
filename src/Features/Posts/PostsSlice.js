@@ -32,7 +32,9 @@ const postsSlice = createSlice({
     hasError: false
   },
   reducers: {
-
+    clearPosts: (state, action) => {
+      state.posts = []
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -70,6 +72,8 @@ const postsSlice = createSlice({
 
 export const selectPosts = (state) => state.posts.posts;
 export const isLoading = (state) => state.posts.isLoadingPosts;
+
+export const { clearPosts } = postsSlice.actions
 
 export default postsSlice.reducer;
 

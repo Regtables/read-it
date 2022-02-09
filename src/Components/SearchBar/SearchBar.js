@@ -17,7 +17,7 @@ function SearchBar({term, placeholder, global}) {
   // }, [searchTerm])
 
   function handleSubmit() {
-    const newSearchTerm = searchTerm.replace(' ', '');
+    const newSearchTerm = searchTerm.replaceAll(' ', '');
     dispatch(initializeSearch(newSearchTerm))
     setSearchTerm('')
   }
@@ -33,7 +33,7 @@ function SearchBar({term, placeholder, global}) {
               onChange = {(e) => setSearchTerm(e.target.value)}
               value = {searchTerm}
           />
-          <Link to = {`/searchResults/${searchTerm}`}>
+          <Link to = {`/searchResults/${searchTerm.replaceAll(' ','')}`}>
           <input
               type = 'submit'
               onClick = {handleSubmit}

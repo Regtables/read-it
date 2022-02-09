@@ -8,15 +8,9 @@ import { Row } from 'antd';
 import './PostList.css'
 
 
-function PostList({topic}) {
-  const postList = useSelector(selectPosts)
-  const dispatch = useDispatch()
+function PostList({postList}) {
+  // const postList = useSelector(selectPosts)
   const isLoadingPosts = useSelector(isLoading)
-  const [subReddit, setSubReddit] = useState()
-
-  // useEffect(() => {
-  //   const postList = useSelector(selectPosts)
-  // },[dispatch])
 
   if(isLoadingPosts) return 'Loading..'
 
@@ -26,20 +20,35 @@ function PostList({topic}) {
         postList.map((post, index) => (
           <Row className = 'row' key = {index }>
           {postList && (<Tile   
-              title = {post.title}
-              url = {post.url}
-              image = {post.url}
-              media = {post.media}
-              subreddit = {post.subreddit}
-              selftext = {post.selftext}
-              isVideo = {post.is_video}
-              postHint = {post.post_hint}
-              mediaEmbed = {post.secure_media_embed}
-              author = {post.author}
-              comments = {post.num_comments}
-              score = {post.score}
-              created = {post.created}
-              permalink = {post.permalink}
+              title = {post?.title || post?.data?.title} 
+              url = {post?.url || post?.data?.url}
+              image = {post?.url || post?.data?.url}
+              media = {post?.media || post?.data?.media}
+              subreddit = {post.subreddit || post?.data?.subreddit}
+              selftext = {post?.selftext || post?.data?.selftext}
+              isVideo = {post?.is_video || post?.data?.is_video}
+              postHint = {post?.post_hint || post?.data?.post_hint}
+              mediaEmbed = {post?.secure_media_embed || post?.data?.secure_media_embed}
+              author = {post?.author || post?.data?.author}
+              comments = {post?.num_comments || post?.data?.num_comments}
+              score = {post?.score || post?.data?.score}
+              created = {post?.created || post?.data?.created}
+              permalink = {post?.permalink || post?.data?.permalink}
+
+              // title = {post?.title} 
+              // url = {post?.url}
+              // image = {post?.url}
+              // media = {post?.media}
+              // subreddit = {post.subreddit}
+              // selftext = {post?.selftext}
+              // isVideo = {post?.is_video}
+              // postHint = {post?.post_hint}
+              // mediaEmbed = {post?.secure_media_embed}
+              // author = {post?.author}
+              // comments = {post?.num_comments}
+              // score = {post?.score}
+              // created = {post?.created}
+              // permalink = {post?.permalink}
 
           />  )}
         </Row>

@@ -50,7 +50,7 @@ function Tile({title,
 
   function isVideo(){
     if(isVideo && media){
-        if(media.reddit_video) {
+        if(media?.reddit_video) {
             video = true;
             return <Row className = 'video-container'>
                         <video controls preload = 'true'>

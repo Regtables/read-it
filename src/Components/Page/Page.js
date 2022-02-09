@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { Row, Col, Space} from 'antd'
 import { useParams } from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
-import { setSubreddit, getSubredditInfo, selectSubreddit, selectSubredditInfo, initializePage } from '../../Features/Subreddit/SubredditSlice'
-import { getSubRedditPosts } from '../../Features/Posts/PostsSlice'
+import { setSubreddit, getSubredditInfo, selectSubreddit, selectSubredditInfo, initializePage, clearInfo } from '../../Features/Subreddit/SubredditSlice'
+import { clearPosts, getSubRedditPosts, selectPosts,  } from '../../Features/Posts/PostsSlice'
 
 import PostList from '../PostList/PostList'
 import SideMenu from '../SideMenu/SideMenu'
@@ -18,12 +18,18 @@ import banner from '../../images/homepage.jpeg'
 function Page() {
   const { subreddit } = useParams();
   const currentSubreddit = useSelector(selectSubreddit)
+  const posts = useSelector(selectPosts)
   const subredditInfo = useSelector(selectSubredditInfo)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(initializePage(subreddit))
-  }, [currentSubreddit, subreddit])
+
+    return () => {
+      dispatch(clearInfo())
+      dispatch(clearPosts())
+    }
+  }, [subreddit])
 
   return (
     <div className = 'page-container'>
@@ -43,7 +49,7 @@ function Page() {
                 </Col>
               </Row>
               <Row className = 'posts'>
-                  <PostList />
+                  <PostList postList = {posts}/>
               </Row>
            </Col>
     </div>

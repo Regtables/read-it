@@ -1,13 +1,22 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { selectSearchResults, selectSearchTerm } from '../../Features/Search/SearchSlice'
+import { selectSearchResults, selectSearchTerm, clearSearchResults, initializeSearch } from '../../Features/Search/SearchSlice'
 import { selectSubredditInfo } from '../../Features/Subreddit/SubredditSlice'
+import PostList from '../../Components/PostList/PostList'
 
 function SearchResults() {
   const results = useSelector(selectSearchResults)
-  const searchTerm = useSelector(selectSearchTerm)
-  console.log(results)
+  // const searchTerm = useSelector(selectSearchTerm)
+  const dispatch = useDispatch()
+  const { searchTerm } = useParams();
+
+  useEffect(() => {
+    dispatch(initializeSearch(searchTerm))
+    return () => {
+      dispatch(clearSearchResults())
+    }
+  }, [])
 
 
   return (
@@ -28,7 +37,7 @@ function SearchResults() {
         </div>
         <hr />
         <div className = 'post-search-results'>
-            
+            <PostList postList = {results} />
         </div>
       </div> 
     </div>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux';
 import { initializePost, getPost, clearPost,  selectPost, selectPostComments, isLoadingPost } from '../../Features/Post/PostSlice' 
-import { initializePage, selectSubredditInfo } from '../../Features/Subreddit/SubredditSlice'
+import { getSubredditInfo, initializePage, selectSubredditInfo } from '../../Features/Subreddit/SubredditSlice'
 import Tile from '../Tile/Tile';
 import CommentList from '../CommentList/CommentList';
 import { Row, Avatar } from 'antd'
@@ -10,6 +10,7 @@ import { LinkOutlined, RiseOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 import './Post.css'
+import { clearPosts } from '../../Features/Posts/PostsSlice';
 
 function Post() {
   const { subreddit, postId, postTitle } = useParams();
@@ -26,8 +27,14 @@ function Post() {
 
   useEffect(() => {
     dispatch(initializePost(permalink))
-    dispatch(initializePage(subreddit))
   },[permalink, dispatch])
+
+  useEffect(() => {
+    dispatch(getSubredditInfo(post.subreddit))
+    return () => {
+      dispatch(clearPost())
+    }
+  },[])
 
   let video = false;
   let embed = false;
