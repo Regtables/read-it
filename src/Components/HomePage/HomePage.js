@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Space} from 'antd'
 import { initializeHomePage, setSubreddit, clearInfo } from '../../Features/Subreddit/SubredditSlice'
 import { getHotPosts, selectPosts, clearPosts } from '../../Features/Posts/PostsSlice'
+import { selectLocalSearchTerm } from '../../Features/Search/SearchSlice'
 
 import PostList from '../PostList/PostList'
 import SideMenu from '../SideMenu/SideMenu'
@@ -22,6 +23,7 @@ import banner4 from '../../images/banner-6.jpeg'
 
 function HomePage() {
   const posts = useSelector(selectPosts)
+  const localSearchTerm = useSelector(selectLocalSearchTerm)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,7 +34,20 @@ function HomePage() {
     }
   },[dispatch])
 
+  useEffect(() => {
+    filteredPosts()
+  }, [localSearchTerm])
+
   const banners = [banner, banner2, banner3, banner4];
+  
+  function filteredPosts(){
+
+    var filteredPosts = posts;
+
+    filteredPosts = posts.filter((post) => post.title.toUpperCase().includes(localSearchTerm.toUpperCase()) || post.subreddit.toUpperCase().includes(localSearchTerm.toUpperCase()))
+  
+    return filteredPosts
+  }
 
   function renderBanner(){
     return banners[Math.floor(Math.random()*banners.length)]
@@ -53,16 +68,18 @@ function HomePage() {
                       icon = {icon}
                       img = {renderBanner()}/>
               </div>
-              <Row className = 'search-bar'>
+              <Row className = 'local-search-bar'>
                 <Col>
-                  <SearchBar placeholder = 'Search this Page' />
+                  <SearchBar 
+                      placeholder = 'Search this Page'
+                  /> 
                 </Col>
                 <Col className = 'filters'>
-                  <Filters terms = {['funny', 'interesting', 'pretty', 'wowowowowowowow']}/>
+                  <Filters terms = {['hot', 'top', 'new']}/>
                 </Col>
               </Row>
               <Row className = 'posts'>
-                  <PostList postList = {posts}/>
+                  <PostList postList = {filteredPosts()}/>
               </Row>
            </Col>
     </div>

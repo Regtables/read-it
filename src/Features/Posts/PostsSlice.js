@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
-import { loadHotPosts, loadSubreddit, loadSubredditPosts } from '../../App/Reddit';
+import { loadHotPosts, loadSubredditPosts, loadSearchSubreddit } from '../../App/Reddit';
 import { selectSubreddit } from '../Subreddit/SubredditSlice';
 
 const baseUrl = 'https://www.reddit.com'

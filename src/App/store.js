@@ -11,6 +11,6 @@ export default configureStore({
     post: postReducer,
     posts: postsReducer,
     subreddit: subredditReducer,
-    searchResults: searchReducer,
+    search: searchReducer,
   }
 })

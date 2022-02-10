@@ -48,13 +48,36 @@ export const loadPost = async (link) => {
     return post
 }
 
-export const loadSearchResults = async (searchTerm) => {
-  const response = await fetch(`${baseUrl}/search.json?q=${searchTerm}&sort=new`)
+export const loadSearchResults = async (searchTerm, sort = 'new') => {
+  const response = await fetch(`${baseUrl}/search.json?q=${searchTerm}&sort=${sort}`)
   const json = await response.json();
   const data = json.data.children;
   
   return data
 }
+
+
+export const loadSearchSubreddit = async (searchTerm, subreddit) => {
+  console.log(searchTerm)
+  // console.log(subreddit)
+  const response = await fetch(`${baseUrl}/r/${subreddit}/search.json?q=${searchTerm}`)
+  // const response = await fetch('https://www.reddit.com/r/leagueoflegends/search.json?q=vex')
+  const json = await response.json()
+  const data = json.data.children;
+  console.log(data)
+
+  return data
+}
+
+export const testAPI = async (searchTerm, subreddit) => {
+  const response = await fetch(`${baseUrl}/r/${subreddit}/search.json?q=${searchTerm}`);
+  const json = await response.json();
+  const data = json.data.children;
+
+  console.log(data)
+}
+
+// loadSearchSubreddit('vex')
 
 export const getToken = async () => {
 

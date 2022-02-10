@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, Link } from 'react-router-dom'
-import { selectSearchResults, selectSearchTerm, clearSearchResults, initializeSearch } from '../../Features/Search/SearchSlice'
+import { selectSearchResults, selectSearchTerm, clearSearchResults, initializeSearch, setIsSearchingSub, selectIsSearchingSub } from '../../Features/Search/SearchSlice'
 import { selectSubredditInfo } from '../../Features/Subreddit/SubredditSlice'
 import PostList from '../../Components/PostList/PostList'
 
@@ -9,14 +9,17 @@ import './SearchResults.css'
 
 function SearchResults() {
   const results = useSelector(selectSearchResults)
+
   // const searchTerm = useSelector(selectSearchTerm)
   const dispatch = useDispatch()
   const { searchTerm } = useParams();
 
   useEffect(() => {
     dispatch(initializeSearch(searchTerm))
+    dispatch(setIsSearchingSub(true))
     return () => {
       dispatch(clearSearchResults())
+      dispatch(setIsSearchingSub(false))
     }
   }, [searchTerm])
 
@@ -42,7 +45,7 @@ function SearchResults() {
         <div className = 'subreddit-search-resutls'>
           {
             filteredSubreddits().map((subreddit, index) => (
-             <div className = 'subreddit-result-container'>
+             <div className = 'subreddit-result-container' key = {index}>
                <Link to = {`/${subreddit}`}><h2>r/{subreddit}</h2></Link>
              </div>
             ))
@@ -59,7 +62,7 @@ function SearchResults() {
         </div>
        
         <div className = 'post-search-results'>
-            <PostList postList = {results} />
+            <PostList postList = {results} searchResult = {true}/>
         </div>
       </div> 
     </div>

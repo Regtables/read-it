@@ -12,12 +12,9 @@
   width: 17%;
   height: 100%;
 }
-
-.search-bar{
-  
-  margin: 50px 50px 50px 50px;
+.local-search-bar{
+  margin: 15px 0 0 50px;
 }
-
 .posts{
   margin: 50px;
 }
